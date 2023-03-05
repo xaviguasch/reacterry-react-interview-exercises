@@ -1,3 +1,5 @@
+import React, { useState } from 'react'
+
 import './App.css'
 
 // Counter
@@ -9,10 +11,13 @@ import './App.css'
 // Return the current count in h1 JSX element
 
 function App() {
+  const [count, setCount] = useState(0)
+
   return (
     <div>
-      <h1>Counter</h1>
-      <button>Incgrement</button>
+      <h1>{count}</h1>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <button onClick={() => setCount(count - 1)}>Decrement</button>
     </div>
   )
 }
