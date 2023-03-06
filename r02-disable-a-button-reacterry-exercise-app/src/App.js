@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import './App.css'
 
 // Disable a button
@@ -8,10 +9,18 @@ import './App.css'
 // Disable the button if the current value of the input is less than 3 characters long
 
 function App() {
+  const [text, setText] = useState('')
+
   return (
     <div className='App'>
-      <input data-testid='input-id' />
-      <button data-testid='button-id'>Click</button>
+      <input
+        data-testid='input-id'
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+      <button data-testid='button-id' disabled={text.length < 3}>
+        Click
+      </button>
     </div>
   )
 }
