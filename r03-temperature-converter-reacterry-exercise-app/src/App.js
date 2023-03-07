@@ -19,14 +19,33 @@
 // Return the output string in a p JSX element
 // You can import any methods from the react library.
 
+import React, { useState } from 'react'
 import './App.css'
 
 function App() {
+  const [temperature, setTemperature] = useState(0)
+
+  const celsiusToFahrenheit = (temp) => {
+    return Math.round(((temp * 9) / 5 + 32) * 100) / 100
+  }
+
+  const celsiusToKelvin = (temp) => {
+    return Math.round((temp + 273.15) * 100) / 100
+  }
+
   return (
     <div className='App'>
-      <input data-testid='input-id' type='number' />
+      <input
+        data-testid='input-id'
+        type='number'
+        value={temperature}
+        onChange={(e) => setTemperature(parseFloat(e.target.value))}
+      />
       °C
-      <p>{/* Write the string here */}</p>
+      <p>
+        {temperature}°C is {celsiusToFahrenheit(temperature)}°F and{' '}
+        {celsiusToKelvin(temperature)}K.{' '}
+      </p>
     </div>
   )
 }
