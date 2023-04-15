@@ -1,9 +1,13 @@
+import React, { useState } from 'react'
+
 const App = () => {
-  // Edit this component
+  const [count, setCount] = useState(0)
   return (
     <div>
-      <button data-testid='button'>Hover Me</button>
-      <h1 data-testid='count'></h1>
+      <button data-testid='button' onMouseEnter={() => setCount(count + 1)}>
+        Hover Me
+      </button>
+      <h1 data-testid='count'>{count}</h1>
     </div>
   )
 }
