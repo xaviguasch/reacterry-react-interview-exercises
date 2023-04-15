@@ -1,6 +1,12 @@
+import React from 'react'
+
 const App = () => {
   // Edit this component
-  return <button data-testid='button'>Click me!</button>
+  return (
+    <button onClick={() => console.log('Clicked!')} data-testid='button'>
+      Click me!
+    </button>
+  )
 }
 
 export default App
